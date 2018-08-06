@@ -1,0 +1,205 @@
+###############################################################################
+#                          UNALIAS LLDB DEFAULT ALIAS                         #
+###############################################################################
+## to re-enable a default alias place a '#' before a 'command unalias alias'
+
+## ('target symbols add')
+## Add a debug symbol file to one of the target's current modules by specifying
+## a path to a debug symbols file, or using the options to specify a module to
+## download symbols for.
+command unalias add-dsy
+
+## ('_regexp-attach')
+## Attach to a process id if in decimal,
+## otherwise treat the argument as a process name to attach to.
+command unalias attach
+
+## ('_regexp-break')
+## Set a breakpoint using a regular expression to specify the location,
+## where <linenum> is in decimal and <address> is in hex.
+command unalias b
+
+## ('_regexp-bt')  Show a backtrace.  An optional argument is accepted;
+## if that argument is a number, it specifies the number of frames to display.
+## If that argument is 'all',full backtraces of all threads are displayed.
+command unalias bt
+
+## ('process continue')
+## Continue execution of all threads in the current process.
+command unalias c
+
+## ('expression --')
+## Evaluate an expression (ObjC++ or Swift) in the current program context,
+## using user defined variables and variables currently in scope.
+command unalias call
+
+## ('process continue')
+## Continue execution of all threads in the current process.
+command unalias continue
+
+## ('process detach')
+## Detach from the current process being debugged.
+command unalias detach
+
+## ('disassemble')
+## Disassemble bytes in the current function,
+## or elsewhere in the executable program as specified by the user.
+command unalias di
+
+## ('disassemble')
+## Disassemble bytes in the current function,
+## or elsewhere in the executable program as specified by the user.
+command unalias dis
+
+## ('_regexp-display')
+## Add an expression evaluation stop-hook.
+command unalias display
+
+## ('_regexp-down')
+## Go down "n" frames in the stack (1 frame by default).
+command unalias down
+
+## ('_regexp-env')
+## Implements a shortcut to viewing and setting environment variables.
+command unalias env
+
+## ('quit')
+## Quit out of the LLDB debugger.
+command unalias exit
+
+## ('frame select')
+## Select a frame by index from within the current thread
+## and make it the current frame.
+command unalias f
+
+## ('target create')
+## Create a target using the argument as the main executable.
+command unalias file
+
+## ('thread step-out')
+## Finish executing the function of the currently selected frame
+## and return to its call site in specified thread (current thread, if none specified).
+command unalias finish
+
+## ('target modules')
+## A set of commands for accessing information for one or more target modules.
+command unalias image
+
+## ('_regexp-jump')
+## Sets the program counter to a new address.
+command unalias j
+
+## ('_regexp-jump')
+## Sets the program counter to a new address.
+command unalias jump
+
+## ('process kill')
+## Terminate the current process being debugged.
+command unalias kill
+
+## ('_regexp-list')
+## Implements the GDB 'list' command in all of its forms except FILE:FUNCTION
+## and maps them to the appropriate 'source list' commands.
+command unalias l
+
+## ('_regexp-list')
+## Implements the GDB 'list' command in all of its forms except FILE:FUNCTION
+## and maps them to the appropriate 'source list' commands.
+command unalias list
+
+## ('thread step-over')
+## Source level single step in specified thread
+## (current thread, if none specified), stepping over calls.
+command unalias n
+
+## ('thread step-over')
+## Source level single step in specified thread
+## (current thread, if none specified), stepping over calls.
+command unalias next
+
+## ('thread step-inst-over')
+## Single step one instruction in specified thread
+## (current thread, if none specified), stepping over calls.
+command unalias nexti
+
+## ('thread step-inst-over')
+## Single step one instruction in specified thread
+# (current thread, if none specified), stepping over calls.
+command unalias ni
+
+## ('expression --')
+## Evaluate an expression (ObjC++ or Swift) in the current program context,
+## using user defined variables and variables currently in scope.
+command unalias p
+
+## ('expression -O  -- ')
+## Evaluate an expression (ObjC++ or Swift) in the current program context,
+## using user defined variables and variables currently in scope.
+command unalias po
+
+## ('expression --')
+## Evaluate an expression (ObjC++ or Swift) in the current program context,
+## using user defined variables and variables currently in scope.
+command unalias print
+
+## ('quit')
+## Quit out of the LLDB debugger.
+command unalias q
+
+## ('process launch -X true --')
+## Launch the executable in the debugger.
+command unalias r
+
+## ('breakpoint set -r %1')
+## Sets a breakpoint or set of breakpoints in the executable.
+command unalias rbreak
+
+## ('expression -r  -- ')
+## Evaluate an expression (ObjC++ or Swift) in the current program context,
+## using user defined variables and variables currently in scope.
+command unalias repl
+
+## ('process launch -X true --')
+## Launch the executable in the debugger.
+command unalias run
+
+## ('thread step-in')
+## Source level single step in specified thread
+## (current thread, if none specified).
+command unalias s
+
+## ('thread step-inst')
+## Single step one instruction in specified thread
+## (current thread, if none specified).
+command unalias si
+
+## ('thread step-in')
+## Source level single step in specified thread
+## (current thread, if none specified).
+command unalias step
+
+## ('thread step-inst')
+## Single step one instruction in specified thread
+# (current thread, if none specified).
+command unalias stepi
+
+## ('thread select')
+## Select a thread as the currently active thread.
+command unalias t
+
+## ('_regexp-tbreak')
+## Set a one shot breakpoint using a reg-ex to specify the location,
+## where <linenum> is in decimal and <address> is in hex.
+command unalias tbreak
+
+## ('_regexp-undisplay')
+## Remove an expression evaluation stop-hook.
+command unalias undisplay
+
+## ('_regexp-up')
+## Go up "n" frames in the stack (1 frame by default).
+command unalias up
+
+## ('memory read')
+## Read from the memory of the process being debugged
+command unalias x
