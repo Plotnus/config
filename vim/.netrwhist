@@ -1,7 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/plot/Documents/tuts/sdl2/lazyfoo/master/08_geometry_rendering'
-let g:netrw_dirhist_2='/Users/plot/.emacs.d'
-let g:netrw_dirhist_3='/Users/plot/.emacs.d/auto-save-list'
-let g:netrw_dirhist_4='/private/etc/paths.d'
-let g:netrw_dirhist_5='/Users/plot'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/plot/repos/thing'
+let g:netrw_dirhist_2='/Users/plot/repos/thing/src'
+let g:netrw_dirhist_3='/Users/plot/edu/rust/structs'
+let g:netrw_dirhist_4='/Users/plot/edu/rust/structs/src'

@@ -7,16 +7,6 @@ set backupdir=$HOME/tmp/
 set directory=$HOME/tmp/
 
 "------------------------------------------------------------
-"   Language: Racket
-"------------------------------------------------------------
-" racket
-if has("autocmd")
-  au BufReadPost *.rkt,*.rktl set filetype=racket
-  au filetype racket set lisp
-  "au filetype racket set autoindent
-endif
- 
-"------------------------------------------------------------
 "   Plugin: Vundle
 "------------------------------------------------------------
 " vundle specific

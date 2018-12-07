@@ -12,13 +12,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-"adding vlime
-Plugin 'l04m33/vlime', {'rtp': 'vim/'}
+" RUST
+Plugin 'rust-lang/rust.vim'
+
 "Plugin 'kovisoft/paredit'
-"adding nerdtree
-Plugin 'scrooloose/nerdtree'
-Plugin 'kovisoft/slimv'
-Plugin 'wlangstroth/vim-racket'
 "
 " The following are examples of different formats supported.
 " plugin on GitHub repo
