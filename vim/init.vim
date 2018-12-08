@@ -1,33 +1,38 @@
 "------------------------------------------------------------
 "   Generated Files
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " For shared projects and such it can be annoying to have to deal with swp.
 " Yes, they're hidden, but do we really want to deal with them.
 set backupdir=$HOME/tmp/
 set directory=$HOME/tmp/
 
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
 "   Plugin: Vundle
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " vundle specific
 source $HOME/.vim/init.vundle.vim
 
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
+"   Disable Auto-Comment
+"-------------------------------------------------------------------------------
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+"-------------------------------------------------------------------------------
 "   Show Invisibles
-"------------------------------------------------------------
-"
+"-------------------------------------------------------------------------------
 " Use the same symbols as TextMate for tabstops and EOLs
 " set list
 set listchars=tab:▸\ ,eol:¬
 "Invisible character colors 
 highlight NonText guifg=#EBEBEB
 highlight SpecialKey guifg=#EBEBEB
-"---------------------------------------------
+
+"-------------------------------------------------------------------------------
 " SECTION: INHERITED
-"---------------------------------------------
+"-------------------------------------------------------------------------------
 " interactive 
 " set shellcmdflag -ic
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " URL: http://vim.wikia.com/wiki/Example_vimrc
 " Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
 " Description: A minimal, but feature rich, example .vimrc. If you are a
@@ -35,7 +40,7 @@ highlight SpecialKey guifg=#EBEBEB
 "              If you're a more advanced user, building your own .vimrc based
 "              on this file is still a good idea.
  
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " run in non vi compatible mode
 set nocompatible
  
@@ -47,7 +52,7 @@ filetype indent plugin on
 " Enable syntax highlighting
 syntax on
  
-"------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Vim with default settings does not allow easy switching between multiple files
 " in the same editor window. Users can use multiple split windows or multiple
 " tab pages to edit multiple files, but it is still best to enable an option to
@@ -88,7 +93,7 @@ set incsearch
 " set nomodeline
  
  
-"------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Usability options {{{1
 "
 " These are options that users frequently set in their .vimrc. Some of them
@@ -150,7 +155,7 @@ set pastetoggle=<F11>
 " highlight the current line
 " set cursorline
 
-"------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " Indentation options {{{1
 "
 " Indentation settings according to personal preference.
@@ -167,7 +172,7 @@ set expandtab
 "set tabstop=4
  
  
-"------------------------------------------------------------
+"------------------------------------------------------------------------------
 " Mappings {{{1
 "
 " Useful mappings
