@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/plot/repos/thing'
-let g:netrw_dirhist_2='/Users/plot/repos/thing/src'
-let g:netrw_dirhist_3='/Users/plot/edu/rust/structs'
-let g:netrw_dirhist_4='/Users/plot/edu/rust/structs/src'

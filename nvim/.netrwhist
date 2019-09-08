@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/plot/.cargo'
+let g:netrw_dirhist_2='/Users/plot'
+let g:netrw_dirhist_3='/Users/plot/tmp/iter-test'
+let g:netrw_dirhist_4='/Users/plot/tmp/iter-test/src'
+let g:netrw_dirhist_5='/Users/plot/repos/discovery/src/05-led-roulette'
+let g:netrw_dirhist_6='/Users/plot/repos/discovery/src/05-led-roulette/src'
+let g:netrw_dirhist_7='/Users/plot/repos/discovery/src/05-led-roulette'
+let g:netrw_dirhist_8='/Users/plot/pg/rust/stocks-and-flows'
