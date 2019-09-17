@@ -2,7 +2,6 @@
 "   Generated Files
 "-------------------------------------------------------------------------------
 " TODO setup swapfile dir and other file dir for neovim
-" TODO setup with XDG dirs
 
 let autoload_dir=''
 "-------------------------------------------------------------------------------
@@ -41,7 +40,6 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'plasticboy/vim-markdown'
 
-" TODO: decide whether to keep
 Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',
         \ 'do': 'make release'
@@ -91,72 +89,105 @@ set expandtab
 " Settings: Keybinds - Native
 " have `Y` yank till end of line
 noremap Y y$ 
-" TODO: decide whether to keep or ditch the keybinds for vim/tmux
-"noremap <c-j> <c-w>j
-"noremap <c-k> <c-w>k
-"noremap <c-l> <c-w>l
-"noremap <c-h> <c-w>h
 
-" Section:  LanguageClient-neovim
+" Section:  LanguageClient-neovim - Language Server Settings
 set hidden
 " TODO: setup for ccls
 let g:LanguageClient_serverCommands = {
         \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
 \}
+
+" Section: LanguageClient-neovim - Keybindings
+
+"Show type info (and short doc) of identifier under cursor.
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+
+"Goto definition under cursor.
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
+"TODO: enable and setup bindings
+"Goto type definition under cursor.
+"nnoremap <silent> ?? LanguageClient#textDocument_typeDefinition()<CR>
+
+"TODO: enable and setup bindings
+"Goto implementation under cursor.
+"nnoremap <silent> ?? LanguageClient#textDocument_implementation()<CR>
+
+"TODO: enable and setup bindings
+"Show list of all available actions.
+"nnoremap <silent> ?? LanguageClient#contextMenu()<CR>
+
+"Rename identifier under cursor.
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+""TODO: tryiout 'tpope/vim-abolish'
+"" Rename - rn => rename
+"noremap <leader>rn :call LanguageClient#textDocument_rename()<CR>
+"
+"" Rename - rc => rename camelCase
+"noremap <leader>rc :call LanguageClient#textDocument_rename(
+"            \ {'newName': Abolish.camelcase(expand('<cword>'))})<CR>
+"
+"" Rename - rs => rename snake_case
+"noremap <leader>rs :call LanguageClient#textDocument_rename(
+"            \ {'newName': Abolish.snakecase(expand('<cword>'))})<CR>
+"
+"" Rename - ru => rename UPPERCASE
+"noremap <leader>ru :call LanguageClient#textDocument_rename(
+"            \ {'newName': Abolish.uppercase(expand('<cword>'))})<CR>
 
-" Settings: Keybinds - CoC
+"List of current buffer's symbols.
+"nnoremap <leader> LanguageClient#textDocument_documentSymbol()<CR>
+
+"List all references of identifier under cursor.
+"nnoremap <leader> ?? LanguageClient#textDocument_references()<CR>
+
+"List all references of identifier under cursor.
+"nnoremap <leader> ?? LanguageClient#textDocument_codeAction()<CR>
+
+"Get a list of completion items at current editing location.
+"Note, this is a synchronous call.
+"When using a supported completion manager (deoplete and
+"nvim-completion-manager are supported), completion should work out of the box.
+"nnoremap <leader> ?? LanguageClient#textDocument_completion()<CR>
+
+
+"Format current document.
+"nnoremap <leader> ?? LanguageClient#textDocument_formatting()<CR>
+
+"Format selected lines.
+"nnoremap <leader> ?? LanguageClient#textDocument_rangeFormatting()<CR>l
+
+"TODO would be nice to just have a way to toggle, and to tie this into jumping using n, and N
+"Highlight usages of the symbol under the cursor.
+"LanguageClient#textDocument_documentHighlight()
+"Clear the symbol usages highlighting.
+"*LanguageClient#clearDocumentHighlight()*
+
+"List of project's symbols.
+"LanguageClient#workspace_symbol()*
+
+"Apply a workspace edit.
+"LanguageClient#workspace_applyEdit()
+
+" TODO figure out how to do the formatting range
+"      To use the language server with Vim's formatting operator.
+"      this should change with formatter, eg clang-format, RustFmt ...etc
+"      section 2.2 of LanguageClient makes me thing I may need to install ale
+"set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+"set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+"LanguageClient#contextMenu()<CR>
+"LanguageClient#textDocument_hover()<CR>
+" TODO: maybe add command for going to docs
+
+" TODO: Try out FZF
+" TODO: decide if should give denite a go
+
+" TODO: determine if this is still needed
 set updatetime=300
-
-" daignostics navigation aka errors and warnings
-"nmap <silent> [c <Plug>(coc-diagnostic-prev)
-"nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-
-
-
-" remap keys for gotos
-" TODO see if these remap any other commands, consider prefixing with leader or space
-"nmap <silent> gd <Plug>(coc-definition)
-" TODO: 'Type definition provider not found for current document' - on rust code
-"nmap <silent> gy <Plug>(coc-type-definition)
-" TODO: understand why `gi` doesn't work on `new` in `Ipv4Addr::new(a,b,c,d)`
-"nmap <silent> gi <Plug>(coc-implementation)
-"nmap <silent> gr <Plug>(coc-references)
-"nmap <silent> <F2> <Plug>(coc-rename)
-
-" show documentation
-" TODO: show documentation for rust std
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" TODO: add shortcuts for building
-" TODO: add shortcuts for running
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
 
 "" Language: Rust
 let g:rustfmt_autosave = 1
 
-"" @section Racer
-"set hidden "mode for buffers so dan't have to save everytime we use goto-definiton
-"let g:racer_cmd="/Users/plot/.cargo/bin/racer" "path to racer binary
-"let g:racer_experimental_completer=1 " for showing function signature
-"let g:racer_insert_paren=1 "insert the parenthesis in the completion
-"" use <Ctl + x>, <Ctl + o> to see suggestions
-"au FileType rust nmap gd <Plug>(rust-def)
-"au FileType rust nmap gs <Plug>(rust-def-split)
-"au FileType rust nmap gx <Plug>(rust-def-vertical)
-"au FileType rust nmap gd <leader>(rust-doc)
-"
 
 ""-------------------------------------------------------------------------------
 " Disable Auto-Comment
