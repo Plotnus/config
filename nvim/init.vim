@@ -21,8 +21,11 @@ call plug#begin(plugin_dir)
 
 "VIM enhancements
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
 Plug 'ciaranm/securemodelines'
-"Plug 'justinmk/vim-sneak' "TODO try out
+
+"TODO try out
+"Plug 'justinmk/vim-sneak'
 
 " Color Themes to Try
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -38,8 +41,11 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'plasticboy/vim-markdown'
 
-" Code Completion and Navigation
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" TODO: decide whether to keep
+Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'make release'
+\}
 
 call plug#end()
 
@@ -48,13 +54,14 @@ set termguicolors
 "color dracula
 "color base16-default-dark
 color gruvbox
-"let g:gruvbox_contrast_dark = "soft"
-"let g:gruvbox_contrast_dark = "hard"
 let g:gruvbox_contrast_dark = "medium" 
+
+
 
 " Settings: for lightline
 " remove '-- INSERT --' since lightline shows it
 set noshowmode
+
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -84,28 +91,41 @@ set expandtab
 " Settings: Keybinds - Native
 " have `Y` yank till end of line
 noremap Y y$ 
-noremap <c-j> <c-w>j
-noremap <c-k> <c-w>k
-noremap <c-l> <c-w>l
-noremap <c-h> <c-w>h
+" TODO: decide whether to keep or ditch the keybinds for vim/tmux
+"noremap <c-j> <c-w>j
+"noremap <c-k> <c-w>k
+"noremap <c-l> <c-w>l
+"noremap <c-h> <c-w>h
 
+" Section:  LanguageClient-neovim
+set hidden
+" TODO: setup for ccls
+let g:LanguageClient_serverCommands = {
+        \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+\}
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " Settings: Keybinds - CoC
 set updatetime=300
 
 " daignostics navigation aka errors and warnings
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+"nmap <silent> [c <Plug>(coc-diagnostic-prev)
+"nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+
+
 
 " remap keys for gotos
 " TODO see if these remap any other commands, consider prefixing with leader or space
-nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gd <Plug>(coc-definition)
 " TODO: 'Type definition provider not found for current document' - on rust code
-nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
 " TODO: understand why `gi` doesn't work on `new` in `Ipv4Addr::new(a,b,c,d)`
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <F2> <Plug>(coc-rename)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> <F2> <Plug>(coc-rename)
 
 " show documentation
 " TODO: show documentation for rust std
@@ -126,17 +146,6 @@ endfunction
 "" Language: Rust
 let g:rustfmt_autosave = 1
 
-"" ensure that vim will search for a rusty-tags.vi file upwards the dir hierarchy
-"autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
-"
-"" ensures that tags file gets updated when a file is written to
-"autocmd BufWritePost *.rs :silent! exec 
-"    \ "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
-"
-"" for navigating to rust sources
-"autocmd BufRead *.rs :setlocal
-"    \ tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
-"
 "" @section Racer
 "set hidden "mode for buffers so dan't have to save everytime we use goto-definiton
 "let g:racer_cmd="/Users/plot/.cargo/bin/racer" "path to racer binary
