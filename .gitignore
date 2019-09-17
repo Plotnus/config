@@ -1,5 +1,9 @@
-vim/bundle
-vim/runtime
+# ignore everything
+*
 
-.DS_STORE
+# except these files
+!.gitignore
+!./nvim/init.vim
+!./shells/tmux.conf
+
 
