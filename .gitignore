@@ -3,7 +3,7 @@
 
 # except these files
 !.gitignore
-!./nvim/init.vim
+!./nvim/*
 !./shells/tmux.conf
 
 
