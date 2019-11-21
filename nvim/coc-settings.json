@@ -1,0 +1,13 @@
+{
+    "codeLens.enable": true,
+    "codeLens.separator":"‣",
+    "diagnostic.virtualText": true,
+    "diagnostic.errorSign": "⚠",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign":">>",
+    "diagnostic.hintSign":">>",
+
+    "list.nextKeymap": "<C-j>",
+    "list.previousKeymap": "<C-k>",
+    "coc.preferences.rootPatterns": [".vim",".git","Cargo.toml"]
+}

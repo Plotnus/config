@@ -44,9 +44,12 @@ Plug 'tikhomirov/vim-glsl'
 
 source ~/.config/nvim/init-colorthemes.vim
 source ~/.config/nvim/init-lightline.vim
+
+" code navigation
 source ~/.config/nvim/init-nerdtree.vim
 source ~/.config/nvim/init-fzf.vim
 source ~/.config/nvim/init-coc.vim
+"source ~/.config/nvim/init-language-client-neovim.vim
 
 call plug#end()
 

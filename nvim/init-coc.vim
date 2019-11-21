@@ -10,11 +10,13 @@ nmap <leader>ld <Plug>(coc-definition)
 nmap <leader>lt <Plug>(coc-type-definition)
 nmap <leader>li <Plug>(coc-implementation)
 nmap <leader>lr <Plug>(coc-references)
+nmap <leader>la <Plug>(coc-code-action)
 " diagnostics
-nmap <leader>ln <Plug> (coc-diagnostic-next)
-nmap <leader>lN <Plug> (coc-diagnostic-prev)
+nmap <leader>ln <Plug>(coc-diagnostic-next)
+nmap <leader>lN <Plug>(coc-diagnostic-prev)
+
 " renaming
-nnoremap <leader>rn <Plug> (coc-rename)
+nnoremap <leader>rn <Plug>(coc-rename)
 " region format
-xmap <leader>rf <Plug> (coc-format-selected)
-nmap <leader>rf <Plug> (coc-format-selected)
+xmap <leader>rf <Plug>(coc-format-selected)
+nmap <leader>rf <Plug>(coc-format-selected)

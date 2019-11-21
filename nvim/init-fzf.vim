@@ -1,7 +1,7 @@
 " NOTE: This file must be called after `plug#begin(...)`
 " NOTE: This file must be before `plug#end()`
 
-Plug 'junegunn/fzf', { 'dir':'~/.fzf', 'do':'./install --all' }
+Plug 'junegunn/fzf', { 'dir':'~/.fzf', 'do':'./install --xdg --all' }
 Plug 'junegunn/fzf.vim'
 
 " Keybinds:
