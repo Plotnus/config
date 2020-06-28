@@ -1,8 +1,0 @@
-# ignore everything
-*/
-
-# except these files
-!.gitignore
-!shells/tmux.conf
-!/nvim/
-

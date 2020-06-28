@@ -1,0 +1,12 @@
+[user]
+    name = Jonathan Plotner
+    email = plotnus@gmail.com
+    username = plotnus
+[core]
+    editor = nvim
+[merge]
+    tool = vimdiff
+[mergetool]
+    prompt = true
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
