@@ -75,8 +75,8 @@ if !("g:vscode")
   nmap <leader>lr <Plug>(coc-references)
   nmap <leader>la <Plug>(coc-code-action)
   " diagnostics
-  nmap <leader>le <Plug>(coc-diagnostic-next)
-  nmap <leader>lE <Plug>(coc-diagnostic-prev)
+  nmap <leader>ne <Plug>(coc-diagnostic-next)
+  nmap <leader>Ne <Plug>(coc-diagnostic-prev)
 
   " renaming
   nnoremap <leader>rn <Plug>(coc-rename)
