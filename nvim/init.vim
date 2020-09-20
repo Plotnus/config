@@ -1,6 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SHARED SETTINGS ACROSS vscode & nvim
 set nocompatible
+" have `Y` work like `D` and `C`
 nnoremap Y y$ 
 map <space> <leader>
 " Dear nvim, please help me learn by letting me know when I make a mistake.
@@ -15,24 +16,29 @@ set confirm
 " TODO: would be nice to play around with tpope's vimsuround
 " henceforth thee shall be nvim specific!!
 if !("g:vscode")
-  " have `Y` work like `D` and `C`
+
   set number ruler
-  set cmdheight=2
   
   " search settings
   set hlsearch incsearch ignorecase smartcase
+
   " Enable use of the mouse for all modes
   set mouse=a
+
   " Allow backspacing over autoindent, line breaks and start of insert action
   set backspace=indent,eol,start
+
+  " Ex Cmdline
+  set cmdheight=2
   " Better command-line completion
   set wildmenu
   " Show partial commands in the last line of the screen
   set showcmd
+
   " when we horizontal split have cursor below, when vsp, cursor to right
   set splitright splitbelow
   
-  " Plugins:
+  "{{{ PLUG:
   call plug#begin('~/.local/share/nvim/plugged')
   "VIM enhancements
   Plug 'tpope/vim-sensible'
@@ -65,8 +71,11 @@ if !("g:vscode")
   Plug 'Yggdroot/indentLine'  " Section: INDENTLINE
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}  " Section: COC
-  call plug#end()
 
+  Plug 'rhysd/vim-llvm'
+
+  call plug#end()
+  "}}}
   "{{{ COC
   " Keybinds: 
   nmap <leader>ld <Plug>(coc-definition)
@@ -132,13 +141,20 @@ if !("g:vscode")
   set termguicolors
   color gruvbox
   "}}}
-  
+  "{{{ VIM-LLVM
+  let g:llvm_extends_official = 1
+  let g:llvm_ext_no_mapping = 0
+
+  " if custom goto mapping is desired there are options.
+  " preferably have these use things like 'coc-definition"
+  "autocmd FileType llvm nmap <buffer><silent>gd <Plug>(llvm-goto-definition)
+  "}}}
   "{{{ FOLDMETHOD
   set foldmethod=manual
   autocmd FileType vim setlocal foldmethod=marker
   "}}}
   
-  " tabs/spaces
+  " tabs and spaces
   if has("autocmd")
     " use filetype detection and file-based automatic indenting.
     filetype plugin indent on
@@ -147,6 +163,16 @@ if !("g:vscode")
     autocmd FileType vim set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
   endif
   set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+
+  " When opening a new line and no filetype-specific indenting is enabled, keep
+  " the same indent as the line you're currently on. Useful for READMEs, etc.
+  set autoindent
+
+  " Use the same symbols as TextMate for tabstops and EOLs
+  set listchars=tab:▸\ ,eol:¬
+  "Invisible character colors 
+  highlight NonText guifg=#EBEBEB
+  highlight SpecialKey guifg=#EBEBEB
   
   set hidden
   set updatetime=300
@@ -154,17 +180,6 @@ if !("g:vscode")
   " Disable Auto-Comment
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   
-  " Use the same symbols as TextMate for tabstops and EOLs
-  set listchars=tab:▸\ ,eol:¬
-  "Invisible character colors 
-  highlight NonText guifg=#EBEBEB
-  highlight SpecialKey guifg=#EBEBEB
-  
-   
-  " When opening a new line and no filetype-specific indenting is enabled, keep
-  " the same indent as the line you're currently on. Useful for READMEs, etc.
-  set autoindent
-   
   " Always display the status line, even if only one window is displayed
   set laststatus=2
 
